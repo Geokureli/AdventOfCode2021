@@ -2,10 +2,11 @@ package day8;
 
 import day8.Data;
 
-class Test
+class Test extends BaseTest
 {
     public function new()
     {
+        super();
         trace("answer 1: " + test1(Display.list));
         trace("answer 2: " + test2(Display.list));
         trace("answer 2 sample: " + test2(Display.samples, true));

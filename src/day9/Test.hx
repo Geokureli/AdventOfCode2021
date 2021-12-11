@@ -2,10 +2,11 @@ package day9;
 
 import day9.Data;
 
-class Test
+class Test extends BaseTest
 {
     public function new()
     {
+        super();
         trace("lowest answer: " + lowest(HeightMap.data));
         trace("lowest sample: " + lowest(HeightMap.sample));
         trace("basins answer: " + basins(HeightMap.data));
