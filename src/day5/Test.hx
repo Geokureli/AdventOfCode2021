@@ -11,13 +11,13 @@ class Test extends BaseTest
         trace("test2 answer: " + test2(Lines.list, Lines.columns));
     }
     
-    static function test1(list:Array<Line>, columns:Int, simple = true)
+    function test1(list:Array<Line>, columns:Int, simple = true)
     {
         var map = new Map<Int, Int>();
         var overlaps = 0;
         function plot (x, y, log = false)
         {
-            if (Test.plot(x, y, map, columns, log))
+            if (this.plot(x, y, map, columns, log))
                 overlaps++;
         }
         for (line in list)
@@ -35,13 +35,13 @@ class Test extends BaseTest
         return overlaps;
     }
     
-    static function test2(list, columns)
+    function test2(list, columns)
     {
         // list = list.splice(0, 10);
         return test1(list, columns, false);
     }
     
-    static function plot(x, y, map:Map<Int, Int>, columns, log = false)
+    function plot(x, y, map:Map<Int, Int>, columns, log = false)
     {
         var i = coord(x, y, columns);
         if (log) trace(x, y);
@@ -60,5 +60,5 @@ class Test extends BaseTest
     // 38,101 -> 921,984 = UR( 38,101,883)//UR
     //967, 30 ->  17,980 = DR( 17, 30,950)//UL
   
-    inline static function coord(x:Int, y:Int, col:Int) return y * col + x;
+    inline function coord(x:Int, y:Int, col:Int) return y * col + x;
 }

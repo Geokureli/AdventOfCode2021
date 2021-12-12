@@ -16,7 +16,7 @@ class Test extends BaseTest
         trace("omptimized answer 2: " + optimized(Fish.list, 256));
     }
     
-    static function brute(fish:Array<Int>, days:Int)
+    function brute(fish:Array<Int>, days:Int)
     {
         fish = fish.copy();
         while (days-- > 0)
@@ -35,7 +35,7 @@ class Test extends BaseTest
         return fish.length;
     }
     
-    static function optimized(fish:Array<Fish>, days:Int)
+    function optimized(fish:Array<Fish>, days:Int)
     {
         var fishPerCycle:Array<Int64> = [for (i in 0...SPAWN_RATE) 0];
         var newFish:Array<Int64> = [0, 0];
@@ -56,5 +56,5 @@ class Test extends BaseTest
         return fishPerCycle[0] + newFish[0] + newFish[1];
     }
     
-    inline static function coord(x:Int, y:Int, col:Int) return y * col + x;
+    inline function coord(x:Int, y:Int, col:Int) return y * col + x;
 }

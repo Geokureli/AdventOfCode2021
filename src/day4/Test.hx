@@ -2,15 +2,16 @@ package day4;
 
 import day4.Data;
 
-class Test
+class Test extends BaseTest
 {
     public function new()
     {
+        super();
         trace("test1 answer: " + test1(Bingo.callList, Bingo.cards));
         trace("test2 answer: " + test2(Bingo.callList, Bingo.cards));
     }
     
-    static public function test1(callList:Array<Int>, cards:Array<Card>)
+    function test1(callList:Array<Int>, cards:Array<Card>)
     {
         for (num in callList)
         {
@@ -24,7 +25,7 @@ class Test
         return -1;
     }
     
-    static public function test2(callList:Array<Int>, cards:Array<Card>)
+    function test2(callList:Array<Int>, cards:Array<Card>)
     {
         cards = cards.copy();
         for (num in callList)

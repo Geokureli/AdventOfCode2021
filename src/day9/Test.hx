@@ -13,7 +13,7 @@ class Test extends BaseTest
         trace("basins sample: " + basins(HeightMap.sample));
     }
     
-    static function lowest(heightMap:Array<Array<Int>>)
+    function lowest(heightMap:Array<Array<Int>>)
     {
         var rows = heightMap.length;
         var cols = heightMap[0].length;
@@ -42,7 +42,7 @@ class Test extends BaseTest
         return count;
     }
     
-    static function basins(heightMap:Array<Array<Int>>)
+    function basins(heightMap:Array<Array<Int>>)
     {
         heightMap.copy();// so i can edit
         var rows = heightMap.length;

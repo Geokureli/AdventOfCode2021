@@ -15,7 +15,7 @@ class Test extends BaseTest
         trace("optimized answer 2: " + optimized(Crab.list.copy(), false));
     }
     
-    static function brute(crabs:Array<Crab>, linear:Bool, log = false)
+    function brute(crabs:Array<Crab>, linear:Bool, log = false)
     {
         var numChecks = 0;
         crabs.sort((a,b)-> { numChecks++; return a-b; });

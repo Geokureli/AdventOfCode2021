@@ -3,6 +3,31 @@ class Main
     static public function main():Void
     {
         #if (!day) #error "You did not specify a day";
+        #elseif (day ==  -1)
+            // test all days 
+            new  day3.Test();
+            new  day4.Test();
+            new  day5.Test();
+            new  day6.Test();
+            new  day7.Test();
+            new  day8.Test();
+            new  day9.Test();
+            new day10.Test();
+            new day11.Test();
+            // new day12.Test();
+            // new day13.Test();
+            // new day14.Test();
+            // new day15.Test();
+            // new day16.Test();
+            // new day17.Test();
+            // new day18.Test();
+            // new day19.Test();
+            // new day20.Test();
+            // new day21.Test();
+            // new day22.Test();
+            // new day23.Test();
+            // new day24.Test();
+            // new day25.Test();
         #elseif (day ==  3) new  day3.Test();
         #elseif (day ==  4) new  day4.Test();
         #elseif (day ==  5) new  day5.Test();

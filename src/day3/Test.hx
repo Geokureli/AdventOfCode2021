@@ -12,7 +12,7 @@ class Test extends BaseTest
         trace("test2 answer: " + test2(bits));
     }
     
-    static public function test1(list:Array<Bits>)
+    function test1(list:Array<Bits>)
     {
         var count = [for (i in 0...12) 0];
         for (bits in list)
@@ -28,7 +28,7 @@ class Test extends BaseTest
         return gamma.int * gamma.getFlipped();
     }
     
-    static public function test2(list:Array<Bits>)
+    function test2(list:Array<Bits>)
     {
         var commonList = list;
         for (i in 0...12)
