@@ -11,12 +11,12 @@ class Test extends BaseTest
         trace("test2 answer: " + test2());
     }
     
-    static function test1()
+    function test1()
     {
         return 0;
     }
     
-    static function test2()
+    function test2()
     {
         return 0;
     }
