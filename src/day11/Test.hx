@@ -59,8 +59,6 @@ class Test extends BaseTest
             
             log.info('day:$day synced:$synced amt:$amt');
             log.verbose('\n$grid');
-            // if (log == logInfo)
-            //     Sys.sleep(100);
         }
         return day;
     }
