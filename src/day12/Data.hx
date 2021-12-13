@@ -6,7 +6,7 @@ import haxe.Constraints.Constructible;
 class Node
 {
     public var name(default, null):String;
-    public var big(default, null):Bool;
+    public var big(get, null):Bool;
     public var small(get, never):Bool;
     public var links(get, never):ReadOnlyArray<Node>;
     var _links = new Array<Node>();
@@ -15,7 +15,6 @@ class Node
     public function new(name:String)
     {
         this.name = name;
-        big = name == name.toUpperCase();
     }
     
     public function add(node:Node)
@@ -24,8 +23,9 @@ class Node
         node._links.push(this);
     }
     
-    public function get_links() return _links;
-    public function get_small() return false == big;
+    inline public function get_links() return _links;
+    inline public function get_big() return name == name.toUpperCase();
+    inline public function get_small() return name == name.toLowerCase();
     
     public function toString() return name;
 }

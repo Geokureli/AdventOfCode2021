@@ -70,7 +70,6 @@ class Path2 extends Path
         if (node.small && contains(node))
             visitedSmallTwice = true;
         
-        log.verbose('small:${node.small} contains:${contains(node)} visitedSmallTwice:$visitedSmallTwice');
         super.go(node, log);
     }
 }
