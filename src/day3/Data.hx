@@ -3,93 +3,102 @@ package day3;
 using StringTools;
 
 // use this for macros or other classes
-abstract Bits(Int) {
-  
-	static public var stringList = Data.RAW.split("\n");
-	static public var list = Data.RAW.split("\n").map(Bits.fromString);
-  static public var FULL = new Bits((1 << 12) - 1);
-	
-  public var int(get, never):Int;
-  
-	public function new(value = 0) {
-    this = value;
-	}
-  
-	@:arrayAccess
-	inline public function get(key:Int):Bool {
-		return toBool((this >> key) & 1);
-	}
-  
-	@:arrayAccess
-	inline public function arrayWrite(key:Int, value:Bool):Bool {
-
-		this = (this & ~(1 << key)) | (toInt(value) << key);
-		return value;
-	}
-  
-  public function getFlipped() return ~this & FULL.int;
-  
-  inline public function get_int() return this;
-
-	inline static function toInt(value:Bool)
-		return value ? 1 : 0;
-  
-	inline static function toBool(value:Int)
-		return value == 1;
-  
-  
-	static public function fromString(data:String = "") {
-		var byte = 0;
-		final length = data.length;
-		for (i in 0...length) {
-      byte <<= 1;
-			if (data.charAt(i) == "1")
-				byte = byte | 1;
-		}
-    return new Bits(byte);
-	}
-  
-  public function toString()
-	{
-    var copy = this;
-    var str = "";
-    while (copy != 0) {
-      str = Std.string(copy & 1) + str;
-      copy >>= 1;
+abstract Bits(Int)
+{
+    static public var stringList = Data.RAW.split("\n");
+    static public var list = Data.RAW.split("\n").map(Bits.fromString);
+    static public var FULL = new Bits((1 << 12) - 1);
+    
+    public var int(get, never):Int;
+    
+    public function new(value = 0)
+    {
+        this = value;
     }
-    return str;
-	}
-  
-  public function toPaddedString(l = 12)
-  {
-		return toString().lpad("0", l);
-  }
-  
-  public function iterator() return new BitsIterator(cast this);
-  public function keys() return 0...12;
+    
+    @:arrayAccess
+    inline public function get(key:Int):Bool
+    {
+        return toBool((this >> key) & 1);
+    }
+    
+    @:arrayAccess
+    inline public function arrayWrite(key:Int, value:Bool):Bool
+    {
+        this = (this & ~(1 << key)) | (toInt(value) << key);
+        return value;
+    }
+    
+    public function getFlipped() return ~this & FULL.int;
+    
+    inline public function get_int() return this;
+    
+    inline static function toInt(value:Bool)
+        return value ? 1 : 0;
+    
+    inline static function toBool(value:Int)
+        return value == 1;
+    
+    
+    static public function fromString(data:String = "")
+    {
+        var byte = 0;
+        final length = data.length;
+        for (i in 0...length)
+        {
+            byte <<= 1;
+            if (data.charAt(i) == "1")
+                byte = byte | 1;
+        }
+        return new Bits(byte);
+    }
+    
+    public function toString()
+    {
+        var copy = this;
+        var str = "";
+        while (copy != 0)
+        {
+            str = Std.string(copy & 1) + str;
+            copy >>= 1;
+        }
+        return str;
+    }
+    
+    public function toPaddedString(l = 12)
+    {
+        return toString().lpad("0", l);
+    }
+    
+    public function iterator() return new BitsIterator(cast this);
+    public function keys() return 0...12;
 }
 
 class BitsIterator
 {
-  var bits:Bits;
-  var i:Int;
-
-  public function new(bits) {
-    this.bits = bits;
-    i = 0;
-  }
-
-  public function hasNext() {
-    return i < 12;
-  }
-
-  public function next() {
-    return bits[i++];
-  }
+    var bits:Bits;
+    var i:Int;
+    
+    public function new(bits)
+    {
+        this.bits = bits;
+        i = 0;
+    }
+    
+    public function hasNext()
+    {
+        return i < 12;
+    }
+    
+    public function next()
+    {
+        return bits[i++];
+    }
 }
 
-class Data {
-	inline static public var RAW =
+class Data
+{
+    inline static public var RAW =
 "000001000101
 101011100101
 100011100110

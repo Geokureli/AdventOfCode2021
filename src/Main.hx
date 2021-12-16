@@ -14,8 +14,8 @@ class Main
             new  day9.Test();
             new day10.Test();
             new day11.Test();
-            // new day12.Test();
-            // new day13.Test();
+            new day12.Test();
+            new day13.Test();
             // new day14.Test();
             // new day15.Test();
             // new day16.Test();
